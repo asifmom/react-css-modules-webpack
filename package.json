@@ -28,7 +28,8 @@
     "tape": "4.5.1",
     "webpack": "1.13.1",
     "webpack-combine-loaders": "2.0.0",
-    "webpack-dev-server": "1.14.1"
+    "webpack-dev-server": "1.14.1",
+    "react-jsonschema-form": "^0.41.2"
   },
   "dependencies": {
     "react": "15.1.0",
