@@ -1,3 +1,23 @@
-.app {
-  color: red;
+body{
+    font-family: helvetica;
+}
+#root{
+  width:50%;
+}
+form .app {
+  color: #022780 ;
+  padding: 10px 0;
+}
+form .app input,form .app textarea{
+    border:1px solid #022780 ;
+}    
+form .app .text-danger{
+    color:#d82c2c ;
+}
+.panel-danger{
+    border: 1px solid #d82c2c ;
+    padding: 0px 15px;
+    margin: 15px 2px;
+    background-color: #f9e4e4 ;
+    color: #d82c2c ;
 }
