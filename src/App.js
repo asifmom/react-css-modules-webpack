@@ -21,9 +21,9 @@ const schema =  {
         title: "Last name",
       },
       age: {
-        type: "string",
+        type: "number",
         title: "Age",
-        pattern: "\d*",
+        pattern: "[\d]*",
       },
       bio: {
         type: "string", 
@@ -48,18 +48,6 @@ const schema =  {
   }
 }
 
-const guardianSchema={
-    type: "object",
-    required: ["gname"],
-    properties:{
-      gname: {
-        type: "string",
-        title: "Guardian Name",
-      }
-
-    }
-
-}
 
  const uiSchema =  {
     firstName: {
@@ -98,6 +86,18 @@ const guardianSchema={
   }
 
 
+const guardianSchema= {...schema, ...{
+      required: [...schema.required, "gname"],
+      properties: {
+        ...schema.properties,
+        gname: {
+          "type": "string",
+          "title": "Guardian name"
+        }
+      }
+    }
+  }
+
 
 // Validations
   function validate(formData, errors) {
@@ -123,10 +123,10 @@ function onAlter(formData) {
   var dataSchema=schema
   
   if (formData.formData.needG) {
-      var dataSchema=addGuardianDetailsOnDomainModel()
-  }
+
+      var dataSchema=guardianSchema
+   }
   else if(formData.formData.needG == false){
-    debugger;
     delete formData.formData.gname
   }  
   ReactDom.render(renderForm(dataSchema,formData.formData), document.getElementById("root"));
